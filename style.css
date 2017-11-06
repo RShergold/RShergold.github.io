@@ -1,17 +1,22 @@
 html, body {
+  box-sizing: border-box;
   background-color: #3b4652;
   font-family: sans-serif;
   color: #88919b;
   font-size: 13px;
-  margin-top: 1rem;
+  margin: 0;
 }
 
 .card {
-  margin: auto;
-  max-width: 37rem;
+  position: absolute;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   height: 18rem;
   background-color: #f7f7f5;
-  margin-bottom: 3rem;
 }
 
 .card-head {
@@ -25,15 +30,23 @@ html, body {
 }
 
 .card-name {
-  max-width: 100%;
+  max-width: 21rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-subtitle {
-  position: relative;
+  max-width: 21rem;
+  width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
   text-transform: uppercase;
   text-align: right;
-  padding-right: 7rem;
   color: #dc281e;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .card-subtitle:before,
 .card-subtitle:after {
@@ -41,8 +54,9 @@ html, body {
   display: inline-block;
   position: absolute;
   background-color: #dc281e;
-  width: 1em;
-  height: 1em;
+  width: 0.75em;
+  height: 0.75em;
+  margin-top: 0.1rem;
 }
 .card-subtitle:before {
   left: 0;
@@ -51,10 +65,57 @@ html, body {
   right: 0;
 }
 
+.card-title {
+  max-width: 29rem;
+  width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  text-transform: uppercase;
+  color: #dc281e;
+  letter-spacing: 1px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.card-title:before,
+.card-title:after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  background-color: #dc281e;
+  width: 0.75em;
+  height: 0.75em;
+  margin-top: 0.1rem;
+}
+.card-title:before {
+  left: 0;
+}
+.card-title:after {
+  right: 0;
+}
+
+.card-body {
+  max-width: 29rem;
+  width: 100%;
+  padding-top: 1.5rem;
+}
+
+.card-body p {
+  margin: 0;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.5px;
+}
+.card-body p:last-child {
+  margin-bottom: 0;
+}
+
+.card-body a {
+  color: #88919b;
+}
 
 
 .links {
   margin: auto;
+  padding-top: 2rem;
   max-width: 37rem;
 }
 
@@ -71,4 +132,33 @@ html, body {
   text-align: center;
   width: 1em;
   display: inline-block;
+}
+
+.flipper {
+  margin: auto;
+  max-width: 37rem;
+  height: 18rem;
+  position: relative;
+  margin-top: 8rem;
+  perspective: 1000px;
+  outline: 0;
+}
+
+.flipper .front,
+.flipper .back {
+  backface-visibility: hidden;
+  transition: transform 1s;
+}
+.flipper .front {
+  cursor: pointer;
+  transform: rotateY(0deg);
+}
+.flipper.flipped .front {
+  transform: rotateY(-180deg);
+}
+.flipper .back {
+  transform: rotateY(180deg);
+}
+.flipper.flipped .back {
+  transform: rotateY(0deg);
 }

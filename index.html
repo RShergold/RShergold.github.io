@@ -7,15 +7,36 @@
 </head>
 <body>
 
-<div>
-  <div class="card">
-    <h1 class="card-head">
-      <img class="card-name" src="name.svg" alt="Remi Shergold">
-    </h1>
+<div
+  class="flipper"
+  tabindex="-1"
+  onclick="this.classList.toggle('flipped')"
+>
+
+  <div class="card front">
+    <img class="card-name" src="name.svg" alt="Remi Shergold">
     <div class="card-subtitle">
       I do internet
     </div>
   </div>
+
+  <div class="card back">
+    <div class="card-title">
+      About me
+    </div>
+    <div class="card-body">
+      <p>
+      I build web and mobile apps.
+      </p>
+      <p>
+        I have worked with Rails, Swift &amp; Objective-C. My work at <a href="https://activeinboxhq.com/">ActiveInbox</a> focuses on React and React Native.
+      </p>
+      <p>
+        In my spare time I have been playing with embedded systems and building custom PCBs.
+      </p>
+    </div>
+  </div>
+
 </div>
 
 <div class="links">
