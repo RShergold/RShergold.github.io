@@ -5,6 +5,20 @@ html, body {
   color: #88919b;
   font-size: 13px;
   margin: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5rem;
+  margin-left: 0.5rem;
+}
+
+.content {
+  height: 23rem;
+  width: 37rem;
 }
 
 .card {
@@ -17,6 +31,9 @@ html, body {
   justify-content: center;
   height: 18rem;
   background-color: #f7f7f5;
+}
+.card.back {
+  align-items: stretch;
 }
 
 .card-head {
@@ -94,9 +111,9 @@ html, body {
 }
 
 .card-body {
-  max-width: 29rem;
-  width: 100%;
   padding-top: 1.5rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .card-body p {
@@ -135,13 +152,10 @@ html, body {
 }
 
 .flipper {
-  margin: auto;
-  max-width: 37rem;
-  height: 18rem;
   position: relative;
-  margin-top: 8rem;
   perspective: 1000px;
   outline: 0;
+  height: 18rem;
 }
 
 .flipper .front,

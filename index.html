@@ -3,61 +3,56 @@
 <head>
   <title>Remi Shergold</title>
   <link rel="stylesheet" type="text/css" href="style.css">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
-<div
-  class="flipper"
-  tabindex="-1"
-  onclick="this.classList.toggle('flipped')"
->
+<div class="content">
+  <div
+    class="flipper"
+    tabindex="-1"
+    onclick="this.classList.add('flipped')"
+  >
 
-  <div class="card front">
-    <img class="card-name" src="name.svg" alt="Remi Shergold">
-    <div class="card-subtitle">
-      I do internet
+    <div class="card front">
+      <img class="card-name" src="name.svg" alt="Remi Shergold">
+      <div class="card-subtitle">
+        I do internet
+      </div>
     </div>
+
+    <div class="card back">
+      <div class="card-title">
+        About me
+      </div>
+      <div class="card-body">
+        <p>
+        I build web and mobile apps.
+        </p>
+        <p>
+          I have worked with Rails, Swift &amp; Objective-C. My work at <a href="https://activeinboxhq.com/">ActiveInbox</a> focuses on React and React Native.
+        </p>
+        <p>
+          In my spare time I have been playing with embedded systems and building custom PCBs.
+        </p>
+      </div>
+    </div>
+
   </div>
 
-  <div class="card back">
-    <div class="card-title">
-      About me
-    </div>
-    <div class="card-body">
-      <p>
-      I build web and mobile apps.
-      </p>
-      <p>
-        I have worked with Rails, Swift &amp; Objective-C. My work at <a href="https://activeinboxhq.com/">ActiveInbox</a> focuses on React and React Native.
-      </p>
-      <p>
-        In my spare time I have been playing with embedded systems and building custom PCBs.
-      </p>
-    </div>
+  <div class="links">
+    <a class="links-link" href="https://github.com/RShergold">
+      GitHub
+    </a>
+    <a class="links-link" href="https://codepen.io/RShergold/">
+      CodePen
+    </a>
+    <a class="links-link" href="https://www.npmjs.com/~rshergold">
+      npm
+    </a>
   </div>
 
 </div>
-
-<div class="links">
-
-  <a class="links-link" href="https://github.com/RShergold">
-    GitHub
-  </a>
-
-  <a class="links-link" href="https://codepen.io/RShergold/">
-    CodePen
-  </a>
-
-  <a class="links-link" href="https://www.npmjs.com/~rshergold">
-    npm
-  </a>
-
-
-
-</div>
-
-
 
 
 </body>
