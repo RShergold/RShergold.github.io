@@ -195,6 +195,6 @@ body {
   }
   .flipper .front,
   .flipper .back {
-    transition: transform 0.1s;
+    transition: transform 0.2s;
   }
 }
