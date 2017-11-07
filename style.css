@@ -182,7 +182,7 @@ body {
 
 @media (pointer: coarse) {
 
-  body {
+/*  body {
     height: 200vh;
     display: block;
   }
@@ -193,6 +193,7 @@ body {
     max-width: 37rem;
     top: calc(50% - 10rem);
   }
+*/
   .flipper .front,
   .flipper .back {
     transition: transform 0.2s;
