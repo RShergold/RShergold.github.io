@@ -69,6 +69,7 @@
     lastY = event.changedTouches[0].screenY;
   }
   window.ontouchmove = function(event) {
+    event.preventDefault();
     var thisY = event.changedTouches[0].screenY;
     thisDeg = Math.min( 180, Math.max( 0, (thisDeg+(thisY-lastY)) ));
     lastY = thisY;
