@@ -193,11 +193,13 @@ body {
   stroke-dasharray: 2000;
   stroke-dashoffset: 2000;
   animation: dash 2s linear 1.2s forwards;
+  -webkit-animation: dash 2s linear 1.2s forwards;
 }
 
 .fadein {
   opacity: 0;
   animation: fadein .5s linear 3.2s forwards;
+  -webkit-animation: fadein .5s linear 3.2s forwards;
 }
 
 @keyframes dash {
