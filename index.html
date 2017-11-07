@@ -55,11 +55,11 @@
 
 </div>
 <script>
-  window.ontouchmove = function() {
+  window.ontouchmove = window.ontouchcancel = window.ontouchend = ontouchstart = function(evt) {
     var deg = Math.round((180/window.innerHeight)*window.pageYOffset);
     deg = Math.max(0, deg);
     deg = Math.min(180, deg);
-    console.log(deg)
+    console.log(deg, evt)
     front.style.transform = 'rotateY('+(0-deg)+'deg)';
     back.style.transform = 'rotateY('+(180-deg)+'deg)';
 
