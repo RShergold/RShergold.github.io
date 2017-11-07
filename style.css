@@ -179,21 +179,40 @@ body {
   transform: rotateY(0deg);
 }
 
+#Remi {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dash 1s linear forwards;
+}
+#dot {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  animation: dash .2s linear 1s forwards;
+}
+#Shergold {
+  stroke-dasharray: 2000;
+  stroke-dashoffset: 2000;
+  animation: dash 2s linear 1.2s forwards;
+}
+
+.fadein {
+  opacity: 0;
+  animation: fadein .5s linear 3.2s forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fadein {
+  to {
+    opacity: 1;
+  }
+}
+
 
 @media (pointer: coarse) {
-
-/*  body {
-    height: 200vh;
-    display: block;
-  }
-
-  .content {
-    position: fixed;
-    width: calc(100% - 1rem);
-    max-width: 37rem;
-    top: calc(50% - 10rem);
-  }
-*/
   .flipper .front,
   .flipper .back {
     transition: transform 0.2s;
