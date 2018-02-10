@@ -7,6 +7,7 @@ window.ontouchstart = function(event) {
   lastPOS = event.changedTouches[0];
 }
 window.ontouchmove = function(event) {
+  event.preventDefault();
   var thisPOS = event.changedTouches[0];
   var movement = {
     x: thisPOS.screenX - lastPOS.screenX,
