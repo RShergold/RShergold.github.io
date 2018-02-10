@@ -54,37 +54,9 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.card-title,
 .card-subtitle {
   max-width: 21rem;
-  width: 100%;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  text-transform: uppercase;
-  text-align: right;
-  color: #dc281e;
-  letter-spacing: 1px;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-.card-subtitle:before,
-.card-subtitle:after {
-  content: '';
-  display: inline-block;
-  position: absolute;
-  background-color: #dc281e;
-  width: 0.75em;
-  height: 0.75em;
-  margin-top: 0.1rem;
-}
-.card-subtitle:before {
-  left: 0;
-}
-.card-subtitle:after {
-  right: 0;
-}
-
-.card-title {
-  max-width: 29rem;
   width: 100%;
   padding-right: 2rem;
   padding-left: 2rem;
@@ -95,20 +67,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .card-title:before,
-.card-title:after {
+.card-title:after,
+.card-subtitle:before,
+.card-subtitle:after {
   content: '';
   display: inline-block;
   position: absolute;
   background-color: #dc281e;
-  width: 0.75em;
-  height: 0.75em;
-  margin-top: 0.1rem;
+  width: 10px;
+  height: 10px;
+  margin-top: 2px;
 }
-.card-title:before {
+.card-title:before,
+.card-subtitle:before {
   left: 0;
 }
-.card-title:after {
+.card-title:after,
+.card-subtitle:after {
   right: 0;
+}
+.card-subtitle {
+  text-align: right;
+}
+.card-title {
+  max-width: 29rem;
 }
 
 .card-body {

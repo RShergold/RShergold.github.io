@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remi Shergold</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="I'm Remi Shergold and I do Internet">
+  <style type="text/css">
+    {{ style.css }}
+  </style>
+</head>
+<body>
+
+<div class="content">
+  <div
+    class="flipper"
+    tabindex="-1"
+    onclick="this.classList.add('flipped')"
+  >
+
+    <div class="card front" id="front">
+
+      {{ name.svg }}
+      <div class="card-subtitle">
+        <span class="fadein">
+          I do internet
+        </span>
+      </div>
+    </div>
+
+    <div class="card back" id="back">
+      <div class="card-title">
+        About me
+      </div>
+      <div class="card-body">
+        <p>
+        I build web and mobile apps.
+        </p>
+        <p>
+          I have worked with Rails, Swift &amp; Objective-C. My work at <a href="https://activeinboxhq.com/">ActiveInbox</a> focuses on React and React Native.
+        </p>
+        <p>
+          In my spare time I have been playing with embedded systems and building custom PCBs.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="links">
+    <a class="links-link" href="https://github.com/RShergold">
+      GitHub
+    </a>
+    <a class="links-link" href="https://codepen.io/RShergold/">
+      CodePen
+    </a>
+    <a class="links-link" href="https://www.npmjs.com/~rshergold">
+      npm
+    </a>
+  </div>
+
+</div>
+<script>
+  {{ script.js }}
+</script>
+</body>
+</html>
