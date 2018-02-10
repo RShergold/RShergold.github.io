@@ -74,8 +74,8 @@ body {
   display: inline-block;
   position: absolute;
   background-color: #dc281e;
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   margin-top: 2px;
 }
 .card-title:before,
