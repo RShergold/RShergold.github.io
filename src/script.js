@@ -6,7 +6,7 @@ var currentDeg = 0;
 window.ontouchstart = function(event) {
   lastPOS = event.changedTouches[0];
 }
-window.ontouchmove = function(event) {
+window.addEventListener('touchmove', function(event) {
   event.preventDefault();
   var thisPOS = event.changedTouches[0];
   var movement = {
@@ -20,8 +20,7 @@ window.ontouchmove = function(event) {
   currentDeg = Math.min( 180, Math.max( 0, (currentDeg - (moveBy ) ) ));
   front.style.transform = 'rotateY('+(0-currentDeg)+'deg)';
   back.style.transform = 'rotateY('+(180-currentDeg)+'deg)';
-}
-
+}, { passive: false });
 
 ;(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
