@@ -12,7 +12,6 @@ const iToName = i => (
     .replace(/./g, c => String.fromCharCode(parseInt(c, 26)+97) )
 );
 
-// const stripWhiteSpace = s => s.replace(/[\n\r]|\s{2,}/g, '');
 const stripWhiteSpace = s => (
   s.replace(/[\n\r]/g,' ')
     .replace(/\s{2,}/g,' ')
