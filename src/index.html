@@ -2,78 +2,75 @@
 <html>
 <head>
   <title>Remi Shergold</title>
-  
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-38971889-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
 
     gtag('config', 'UA-38971889-1');
   </script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="I'm Remi Shergold and I do Internet">
-  <link rel="icon" href="/img/favicon-16.png" sizes="16x16" type="image/png">
-  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="icon" href="/img/favicon-48.png" sizes="48x48" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="I'm Remi Shergold and I do Internet" />
+  <link rel="icon" href="/img/favicon-16.png" sizes="16x16" type="image/png" />
+  <link rel="icon" href="/img/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="/img/favicon-48.png" sizes="48x48" type="image/png" />
   <style type="text/css">
     {{ style.css }}
   </style>
 </head>
 <body>
+  <div class="content">
+    <div class="flipper" tabindex="-1" onclick="this.classList.add('flipped')">
+      <div class="card front" id="front">
+        {{ name.svg }}
+        <div class="card-subtitle">
+          <span class="fadein">
+            I do internet
+          </span>
+        </div>
+      </div>
 
-<div class="content">
-  <div
-    class="flipper"
-    tabindex="-1"
-    onclick="this.classList.add('flipped')"
-  >
-
-    <div class="card front" id="front">
-
-      {{ name.svg }}
-      <div class="card-subtitle">
-        <span class="fadein">
-          I do internet
-        </span>
+      <div class="card back" id="back">
+        <div class="card-title">
+          About me
+        </div>
+        <div class="card-body">
+          <p>
+            I build web and mobile apps.
+          </p>
+          <p>
+            I have worked with Rails, Swift, Objective-C and React Native. My
+            work at
+            <a href="https://www.creative-technologies.co.uk">Creative Technologies</a>
+            focuses on React and C#.
+          </p>
+          <p>
+            In my spare time I have been playing with embedded systems and
+            building custom PCBs.
+          </p>
+        </div>
       </div>
     </div>
 
-    <div class="card back" id="back">
-      <div class="card-title">
-        About me
-      </div>
-      <div class="card-body">
-        <p>
-        I build web and mobile apps.
-        </p>
-        <p>
-          I have worked with Rails, Swift and Objective-C. My work at <a href="https://activeinboxhq.com/">ActiveInbox</a> focuses on React and React Native.
-        </p>
-        <p>
-          In my spare time I have been playing with embedded systems and building custom PCBs.
-        </p>
-      </div>
+    <div class="links">
+      <a class="links-link" href="https://github.com/RShergold">
+        GitHub
+      </a>
+      <a class="links-link" href="https://codepen.io/RShergold/">
+        CodePen
+      </a>
+      <a class="links-link" href="https://www.npmjs.com/~rshergold">
+        npm
+      </a>
     </div>
-
   </div>
-
-  <div class="links">
-    <a class="links-link" href="https://github.com/RShergold">
-      GitHub
-    </a>
-    <a class="links-link" href="https://codepen.io/RShergold/">
-      CodePen
-    </a>
-    <a class="links-link" href="https://www.npmjs.com/~rshergold">
-      npm
-    </a>
-  </div>
-
-</div>
-<script>
-  {{ script.js }}
-</script>
+  <script>
+    {{ script.js }}
+  </script>
 </body>
 </html>

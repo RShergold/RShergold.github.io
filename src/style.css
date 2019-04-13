@@ -48,7 +48,9 @@ body {
 }
 
 .card-name {
-  max-width: 21rem;
+  max-width: 100%;
+  width: 325px;
+  height: 51px;
   padding-right: 2rem;
   padding-left: 2rem;
   margin-bottom: 0.5rem;
