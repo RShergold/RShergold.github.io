@@ -18,6 +18,8 @@ const stripWhiteSpace = s => (
     .replace(/> </g, '><')
     .replace(/\s*([{}:;=])\s*/g,'$1')
     .replace(/;}/g,'}')
+    .replace(/> /g,'>')
+    .replace(/ </g,'<')
 )
 
 function join(html, parts) {

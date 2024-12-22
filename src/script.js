@@ -18,7 +18,7 @@ window.addEventListener('touchmove', function(event) {
   var max = Math.max(movement.x, movement.y);
   var moveBy = ( Math.abs(min) > Math.abs(max) ) ? min : max;
   currentDeg = Math.min( 180, Math.max( 0, (currentDeg - (moveBy ) ) ));
-  front.style.transform = 'rotateY('+(0-currentDeg)+'deg)';
-  back.style.transform = 'rotateY('+(180-currentDeg)+'deg)';
+  window.front.style.transform = 'rotateY('+(0-currentDeg)+'deg)';
+  window.back.style.transform = 'rotateY('+(180-currentDeg)+'deg)';
 }, { passive: false });
 
