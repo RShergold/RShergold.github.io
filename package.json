@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "watch": "nodemon -e js,html,css,svg --watch src ./build.js",
+    "build": "node build.js"
+  }
+}

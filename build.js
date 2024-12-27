@@ -1,98 +1,15 @@
 const fs = require('fs');
-const https = require('https');
-const querystring = require('querystring');
-
 const HTML = fs.readFileSync('src/index.html','utf-8');
-const CSS = fs.readFileSync('src/style.css','utf-8');
-const JS = fs.readFileSync('src/script.js','utf-8');
-const SVG = fs.readFileSync('src/name.svg','utf-8');
 
-const iToName = i => (
-  i.toString(26)
-    .replace(/./g, c => String.fromCharCode(parseInt(c, 26)+97) )
-);
-
-const stripWhiteSpace = s => (
-  s.replace(/[\n\r]/g,' ')
-    .replace(/\s{2,}/g,' ')
-    .replace(/> </g, '><')
-    .replace(/\s*([{}:;=])\s*/g,'$1')
-    .replace(/;}/g,'}')
-    .replace(/> /g,'>')
-    .replace(/ </g,'<')
-)
-
-function join(html, parts) {
-  return Object.keys(parts).reduce( (memo, key)=> (
-    memo.replace(`{{${key}}}`, parts[key])
-  ), html)
-}
-
-// This is definitely a good idea
-let classNameMap = {}
-let i = 0;
-let minCSS = CSS.replace(/\.-?[_a-zA-Z]+[_a-zA-Z0-9-]*/g, (className) => {
-  if( ['.flipped','.card-name'].includes(className) ) {
-    return className;
-  }
-  if( className in classNameMap ) {
-    return '.'+classNameMap[className];
-  }
-  const name = iToName(i++);
-  classNameMap[className] = name;
-  return '.'+name;
-});
-
-let minHTML = HTML.replace(/(class=["'])([\w -]*)/g, (a,open,classNames) => {
-  return classNames
-    .split(' ')
-    .reduce( (memo, className) =>
-      memo + (classNameMap['.'+className] || className) + ' '
-    , open)
-    .slice(0, -1);
-});
-minHTML = stripWhiteSpace(minHTML);
-
-// in for a penny, in for a pound
-const postData = querystring.stringify({
-  compilation_level: 'ADVANCED_OPTIMIZATIONS',
-  output_format: 'text',
-  output_info: 'compiled_code',
-  js_code: JS
-});
-var options = {
-  hostname: 'closure-compiler.appspot.com',
-  port: 443,
-  path: '/compile',
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded',
-    'Content-Length': Buffer.byteLength(postData)
-  }
-}
-console.log('running closure compiler');
-const req = https.request(options, (res) => {
-  let body = '';
-  res.setEncoding('utf8');
-  res.on('data', (chunk) => body += chunk);
-  res.on('end', () => {
-
-    let out = join(minHTML, {
-      'style.css': stripWhiteSpace(minCSS),
-      'name.svg': stripWhiteSpace(SVG),
-      'script.js': body,
-    })
-
-    fs.writeFileSync('./index.html', out);
-
-  });
-});
-req.write(postData);
-req.end();
+let minHTML = HTML
+  .replace(/{{ (.*) }}/g, (_, fileName) => fs.readFileSync('src/'+fileName, 'utf-8') ) // Replace {{ fileName }} with file content
+  .replace(/\n/g, '') // Remove newlines
+  .replace(/\s{2,}/g, ' ') // Replace multiple whitespaces with a single whitespace
+  .replace(/>\s+</g, '><') // Remove whitespaces between tags
+  .replace(/>\s+|\s+</g, match => match.trim()) // Remove leading/trailing whitespace inside tags
+  .replace(/(\w+)="([^"\s]+)"/g, '$1=$2') // Remove quotes around single-word attributes
+  .replace(/(\S)<a/g, '$1 <a') // Ensure <a> tags have a whitespace before them
+  .replace(/<\/a>(\S)/g, '</a> $1') // Ensure </a> tags have a whitespace after them
 
 
-// fs.writeFileSync('./index.html', out);
-
-// console.log( stripWhiteSpace(out) );
-// console.log( stripWhiteSpace(JS) )
-// console.log(JSON.stringify(classNameMap))
+fs.writeFileSync('./index.html', minHTML);

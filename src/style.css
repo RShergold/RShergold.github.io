@@ -146,7 +146,6 @@ body {
 .flipper .front,
 .flipper .back {
   backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
   transition: transform 1s;
 }
 .flipper .front {
